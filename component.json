@@ -1,0 +1,68 @@
+{
+    "title": "EU BON UTIS",
+    "description": "The Unified Taxonomic Information Service (UTIS) is the taxonomic backbone for the EU-BON project",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/cybertaxonomy.eu/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://cybertaxonomy.eu/eu-bon/utis/1.0",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "capabilities": {
+            "main": "./lib/actions/capabilities.js",
+            "title": "capabilities",
+            "description": "capabilities",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/capabilities.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "search": {
+            "main": "./lib/actions/search.js",
+            "title": "search",
+            "description": "search",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

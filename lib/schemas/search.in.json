@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "query": {
+            "required": true,
+            "type": "string"
+        },
+        "providers": {
+            "required": false,
+            "type": "string",
+            "default": "pesi,eunis,bgbm-cdm-server[col]"
+        },
+        "searchMode": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "scientificNameExact",
+                "scientificNameLike",
+                "vernacularNameExact",
+                "vernacularNameLike",
+                "findByIdentifier"
+            ],
+            "default": "scientificNameExact"
+        },
+        "addSynonymy": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        },
+        "timeout": {
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        }
+    }
+}
